@@ -11,3 +11,5 @@ class TestLoginNegative:
         my_account.input_username('lllllll')
         my_account.input_password('jhgfddss')
         my_account.click_login()
+        error = "Error: The username lllllll is not registered on this site. If you are unsure of your username, try your email address instead."
+        my_account.wait_till_error_displayed(error)

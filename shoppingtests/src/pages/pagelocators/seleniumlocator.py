@@ -16,3 +16,8 @@ class SeleniumHelpers:
         timeout = timeout if timeout else self.def_timeout
         WebDriverWait(self.driver, timeout).until(
             EC.visibility_of_element_located(locator)).click()
+
+    def wait_until_error_is_displayed(self, locator, text, timeout=None):
+        timeout = timeout if timeout else self.def_timeout
+        WebDriverWait(self.driver, timeout).until(EC.text_to_be_present_in_element(locator, text)
+        )
