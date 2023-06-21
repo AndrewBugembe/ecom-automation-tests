@@ -11,3 +11,5 @@ WORKDIR /automation
 COPY requirements.txt .
 RUN python3 -m pip install -r requirements.txt
 COPY . .
+WORKDIR /automation/shoppingtests
+ENTRYPOINT ["python3", "-m", "pytest"]
