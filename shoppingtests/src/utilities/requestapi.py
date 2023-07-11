@@ -15,8 +15,9 @@ class RequestApi(object):
         self.auth = OAuth1(wc_credentials["wc_key"], wc_credentials["wc_secret"])
         self.base_url = API_HOSTS['test']
 
-    def assert_status_code(self):
-       assert self.status_code == self.expected_status_code, f'Bad response code '
+    # def assert_status_code(self, status_code):
+    #     self.status_code = status_code
+    #    assert self.status_code == self.expected_status_code, f'Bad response code '
 
     def post(self, endpoint="/customers", headers=None, payload=None, expected_status_code=201):
         if not headers:
@@ -24,19 +25,23 @@ class RequestApi(object):
         url = self.base_url + endpoint
 
         rs_api = requests.post(url=url, data=json.dumps(payload), headers=headers, auth=self.auth)
-        self.status_code = rs_api.status_code
-        self.expected_status_code = expected_status_code
         self.rs_json = rs_api.json()
-        self.assert_status_code()
+        self.status_code = rs_api.status_code
+        assert self.status_code == expected_status_code, "Bad response code"
 
-        # assert self.status_code == int(expected_status_code),\
-        # f'Expected status code is {expected_status_code} but it is {self.status_code}'
-        return rs_api.json()
-        logger.debug(f'API response: {rs_api.json()}')
+        logger.debug(f'POST API response: {rs_api.json()}')
+        return self.rs_json
 
-
+    def get(self, endpoint="customers?order=desc&orderby=id", headers=None, payload=None, expected_status_code=201):
+        if not headers:
+            headers = {"Content-Type": "application/json"}
+        url = self.base_url + endpoint
+        rs_api = requests.get(url=url, data=json.dumps(payload), headers=headers, auth=self.auth)
         breakpoint()
+        # self.status_code = rs_api.status_code
+        # self.expected_status_code = expected_status_code
+        # self.rs_json = rs_api.json()
+        # self.assert_status_code()
 
-
-    def get(self, endpoint, data):
-        pass
+        logger.debug(f'GET API response: {rs_api.json()}')
+        return rs_api

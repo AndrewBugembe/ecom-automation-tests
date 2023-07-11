@@ -1,4 +1,4 @@
-import  pymysql
+import pymysql
 from shoppingtests.src.utilities.credentialUtilities import CredentialUtilities
 class ConnectToDb(object):
     def __init__(self):
