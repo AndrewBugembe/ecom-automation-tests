@@ -1,0 +1,2 @@
+BROWSER=chrome
+base_url=http://192.168.1.250:8888/shopping

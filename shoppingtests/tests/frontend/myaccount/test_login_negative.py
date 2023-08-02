@@ -4,7 +4,7 @@ from shoppingtests.src.pages.pagelocators.MyAccountWhenSignedOut import MyAccoun
 @pytest.mark.usefixtures('init_driver')
 class TestLoginNegative:
 
-    @pytest.mark.t1
+    @pytest.mark.tf1
     def test_login_user_not_registered(self):
         my_account = MyAccountSignedOut(self.driver)
         my_account.go_to_my_account()
