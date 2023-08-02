@@ -1,5 +1,6 @@
 import pytest
 from shoppingtests.src.utilities.requestapi import RequestApi
+<<<<<<< HEAD
 from shoppingtests.src.DAO.productDAO import ProductFromDb
 from shoppingtests.src.helpers.prod_api_helper import ProductHelper
 import logging as logger
@@ -7,10 +8,16 @@ import logging as logger
 
 
 @pytest.mark.product
+=======
+
+
+@pytest.mark.customer
+>>>>>>> d7cf80e60b0b5a5878cd899d5178c204239a11d8
 @pytest.mark.tb4
 def test_get_products():
     get_api = RequestApi()
     get_products = get_api.get("products")
+<<<<<<< HEAD
     return get_products
 
 @pytest.mark.product
@@ -34,3 +41,7 @@ def test_get_random_product_by_id():
 #     #assert response
 #     assert prod_db[0]['post_title'] == rs_api_prod[0]["name"], "Something did not work"
 
+=======
+    breakpoint()
+    return get_products
+>>>>>>> d7cf80e60b0b5a5878cd899d5178c204239a11d8
