@@ -1,6 +1,6 @@
 
 from shoppingtests.src.utilities.genericUtilities import get_random_email_password
-from shoppingtests.src.utilities.requestapi import RequestApi
+
 class CustomerHelper(object):
 
     def __init__(self):

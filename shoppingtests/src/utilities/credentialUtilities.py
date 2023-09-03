@@ -13,7 +13,7 @@ class CredentialUtilities(object):
         if not wc_key or not wc_secret:
             raise Exception("API 'WC_KEY' and 'WC_SECRET' must be variables in the env")
         else:
-            return {"wc_key": wc_key, "wc_secret": wc_secret}
+            return {"WC_KEY": wc_key, "WC_SECRET": wc_secret}
 
     @staticmethod
     def get_db_creds():
