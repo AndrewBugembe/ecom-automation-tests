@@ -1,0 +1,5 @@
+env.bat
+run_tests_docker.sh
+*.sh
+requirements.txt
+*.env
