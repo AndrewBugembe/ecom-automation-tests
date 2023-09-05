@@ -1,8 +1,11 @@
-from shoppingtests.src.utilities.requestapi import RequestApi
+from shoppingtests.src.utilities.wooAPIutility import WooAPIUtility
 
 class ProductHelper:
     def __init__(self):
-        self.request_utility = RequestApi()
+        self.api_utility = WooAPIUtility()
 
     def get_product_id(self, product_id):
-        return self.request_utility.get('products/product_id')
+        return self.api_utility.get('products/product_id')
+
+    def get_product(self, products):
+        return self.api_utility.get('products')
