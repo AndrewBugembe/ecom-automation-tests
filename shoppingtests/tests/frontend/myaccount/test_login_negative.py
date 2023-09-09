@@ -1,5 +1,5 @@
 import pytest
-from shoppingtests.src.pages.pagelocators.MyAccountWhenSignedOut import MyAccountSignedOut
+from shoppingtests.src.pages.pagelocators.MyAccountWhenSignedOutPage import MyAccountSignedOut
 
 @pytest.mark.usefixtures('init_driver')
 class TestLoginNegative:
