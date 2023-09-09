@@ -1,4 +1,4 @@
-from shoppingtests.src.pages.pagelocators.MyAccountLocators import MyAccountSignedOutLocator
+from shoppingtests.src.pages.pagelocators.MyAccountSignedOutLocators import MyAccountSignedOutLocator
 
 from shoppingtests.src.pages.pagelocators.seleniumlocator import SeleniumHelpers
 from shoppingtests.src.helpers.url_helper import base_url
@@ -15,21 +15,30 @@ class MyAccountSignedOut(MyAccountSignedOutLocator):
     def go_to_my_account(self):
         url = base_url()
         my_account_url = url + "/my-account/"
-        logger.info(f"Geting into my {my_account_url}")
+        logger.info(f"Getting into my {my_account_url}")
         self.driver.get(my_account_url)
 
 
     def input_username(self, username):
         self.sl.wait_and_input_text(self.LOGIN_USERNAME, username)
 
+    def input_register_email(self, email):
+        self.sl.wait_and_input_text(self.REGISTER_EMAIL, email)
 
     def input_password(self, password):
         self.sl.wait_and_input_text(self.LOGIN_PASSWORD, password)
 
+    def input_register_password(self, password):
+        self.sl.wait_and_input_text(self.REGISTER_PASSWORD, password)
+
 
     def click_login(self):
-        logger.debug("we been debugging")
+        logger.debug("clicking login button")
         self.sl.wait_and_click(self.CLICK_LOGIN)
+
+    def click_register(self):
+        logger.debug("clicking register button")
+        self.sl.wait_and_click(self.CLICK_REGISTER)
 
     def wait_till_error_displayed(self, exp_err):
         self.sl.wait_until_error_is_displayed(self.ERROR_DISPLAYED, exp_err)
