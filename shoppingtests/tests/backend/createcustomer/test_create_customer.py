@@ -3,7 +3,7 @@ import logging as logger
 from shoppingtests.src.utilities.genericUtilities import get_random_email_password
 from shoppingtests.src.DAO.customerDAO import CustomerFromDb
 from shoppingtests.src.utilities.wooAPIutility import WooAPIUtility
-import requests
+
 
 @pytest.mark.customer
 @pytest.mark.tb1
@@ -14,7 +14,7 @@ def test_create_customer_email():
     email = rand_info['email']
     password = rand_info['password']
     payload = {'email': email, 'password': password}
-    # return payload
+
 # make api call
 
     woo_helper = WooAPIUtility()
@@ -33,18 +33,7 @@ def test_create_customer_email():
     assert customer_info['email'] == email, f"Created email should be the same as email in database"
     assert customer_info['id'], f"ID should be present"
 
-#     breakpoint()
 
-# customer_in_db.get_customer_by_email(email)
-#     id_in_api = customer_api["email"]
-#     id_in_db = customer_info[0]["user_email"]
-#     assert id_in_api == id_in_db, f"Something is wrong"
-
-#     breakpoint()
-
-# assert status code
-
-# create customer using existing email
 @pytest.mark.customer
 @pytest.mark.tb2
 def test_create_customer_fail_with_existing_email():
