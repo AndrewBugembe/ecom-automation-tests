@@ -1,20 +1,22 @@
 from shoppingtests.src.pages.pagelocators.MyAccountSignedOutLocators import MyAccountSignedOutLocator
 
 from shoppingtests.src.pages.pagelocators.seleniumlocator import SeleniumHelpers
-from shoppingtests.src.helpers.url_helper import base_url
+
+from shoppingtests.src.configs.hosts_config import MainConfigs
 import logging as logger
 
 
 class MyAccountSignedOut(MyAccountSignedOutLocator):
-    # endpoint = "/my-account/"
+
 
     def __init__(self, driver):
         self.driver = driver
         self.sl = SeleniumHelpers(self.driver)
 
     def go_to_my_account(self):
-        url = base_url()
-        my_account_url = url + "/my-account/"
+        url = MainConfigs.get_base_url()
+        endpoint = "/my-account/"
+        my_account_url = url + endpoint
         logger.info(f"Getting into my {my_account_url}")
         self.driver.get(my_account_url)
 
