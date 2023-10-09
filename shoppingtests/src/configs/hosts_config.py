@@ -5,8 +5,8 @@ import logging as logger
 class MainConfigs:
 
     URL_CONFIGS = {
-         "test": {"base_url": "http://localhost:8888/shopping/" },
-        "dev": {"base_url": "http://localhost:8888/shopping/"},
+         "test": {"base_url": "http://localhost:8888/shopping"},
+        "dev": {"base_url": "http://localhost:8888/shopping"},
         "prod": {"base_url": ""}
     }
     DB_CONFIGS = {
@@ -53,3 +53,10 @@ class MainConfigs:
         # logger.info(db_configs)
         # logger.info("ppppppppppp")
         return db_configs
+
+    @staticmethod
+    def get_coupon_code(discount):
+        if discount.upper() == "FREE COUPON":
+            return "SHOPPING100"
+        else:
+            raise Exception(f"Expected coupon code did not match, discount is {discount}")

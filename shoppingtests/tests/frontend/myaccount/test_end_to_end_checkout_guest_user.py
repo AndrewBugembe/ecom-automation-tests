@@ -2,6 +2,8 @@ import pytest
 from shoppingtests.src.pages.pagelocators.HomePage import HomePage
 from shoppingtests.src.pages.pagelocators.Header import Header
 from shoppingtests.src.pages.pagelocators.CartPage import CartPage
+from shoppingtests.src.pages.pagelocators.CheckoutPage import CheckoutPage
+from shoppingtests.src.pages.pagelocators.OrderReceivedPage import OrderReceived
 from shoppingtests.src.configs.hosts_config import MainConfigs
 @pytest.mark.usefixtures("init_driver")
 class TestEndToEndCheckoutGuestUser:
@@ -10,6 +12,8 @@ class TestEndToEndCheckoutGuestUser:
         home_page = HomePage(self.driver)
         header = Header(self.driver)
         cart_page = CartPage(self.driver)
+        checkout_page = CheckoutPage(self.driver)
+        order_received_page = OrderReceived(self.driver)
 
         # go to home page
 
@@ -36,7 +40,12 @@ class TestEndToEndCheckoutGuestUser:
         # proceed to checkout
         cart_page.click_proceed_to_checkout()
 
+        #fill in checkout form
+        checkout_page.fill_in_billing_info()
+
         # verify order is placed
+        order_received_page.get_order_received_confirmation()
+        order_received_page.verify_order_number()
 
 
 
