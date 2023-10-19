@@ -7,3 +7,12 @@ class Banner(BannerLocator):
 
     def verify_discount_banner_displayed(self):
         self.sl.wait_until_element_is_visible(self.DISCOUNT_BANNER)
+
+    def verify_discount_banner_is_not_displayed(self):
+        try:
+            self.verify_discount_banner_displayed()
+            raise Exception("The discount banner is displayed yet it should not be")
+        except:
+            pass
+
+
