@@ -34,3 +34,8 @@ class HomePage(HomePageLocator):
         displayed_menu = self.get_menu_displayed()
         for menu in self.expected_menu:
             assert menu in displayed_menu, f"{menu} is not in expected list {displayed_menu}"
+
+    def verify_shopping_dropdown_displayed(self,drop_down=None):
+        drop_down = 'Default sorting' if not drop_down else drop_down
+
+        self.sl.wait_and_select_dropdown(self.DROPDOWN_BTN, to_select=drop_down, select_by="visible_text")

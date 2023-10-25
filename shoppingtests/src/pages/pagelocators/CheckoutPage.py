@@ -1,10 +1,18 @@
 from shoppingtests.src.pages.pagelocators.seleniumlocator import SeleniumHelpers
 from shoppingtests.src.pages.pagelocators.CheckoutLocator import CheckoutLocator
 from shoppingtests.src.utilities.genericUtilities import get_random_email_password
-
+from shoppingtests.src.configs.hosts_config import MainConfigs
 class CheckoutPage(CheckoutLocator):
+    endpoint = '/checkout'
     def __init__(self, driver):
+        self.driver = driver
         self.sl = SeleniumHelpers(driver)
+
+    def go_to_checkout_page(self):
+        checkout = MainConfigs.get_base_url()
+        url = checkout + self.endpoint
+        self.driver.get(url)
+
 
     def input_billing_firstname(self, firstname=None):
         firstname = 'Automation_First' if not firstname else firstname
