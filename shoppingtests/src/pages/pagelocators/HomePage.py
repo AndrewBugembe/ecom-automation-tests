@@ -27,7 +27,7 @@ class HomePage(HomePageLocator):
 
     def get_menu_displayed(self):
         menu_items = self.sl.wait_and_get_elements(self.MENU_LIST)
-        menu_list = [ item.text for item in menu_items]
+        menu_list = [item.text for item in menu_items]
         return menu_list
 
     def assert_menu_displayed(self):
@@ -39,3 +39,14 @@ class HomePage(HomePageLocator):
         drop_down = 'Default sorting' if not drop_down else drop_down
 
         self.sl.wait_and_select_dropdown(self.DROPDOWN_BTN, to_select=drop_down, select_by="visible_text")
+
+    def verify_search_bar_displayed(self, text=None):
+        text = 'beanie' if not text else text
+        self.sl.wait_and_input_text(self.SEARCH_BAR, text)
+
+    def verify_cart_btn_displayed(self):
+        self.sl.wait_and_click(self.VIEW_CART_BTN)
+
+    def verify_website_title_displayed(self):
+        # text =  if not text else text
+        return self.sl.wait_and_get_text(self.WEBSITE_TITLE)

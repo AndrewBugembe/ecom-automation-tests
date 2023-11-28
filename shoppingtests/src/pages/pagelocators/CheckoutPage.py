@@ -13,7 +13,6 @@ class CheckoutPage(CheckoutLocator):
         url = checkout + self.endpoint
         self.driver.get(url)
 
-
     def input_billing_firstname(self, firstname=None):
         firstname = 'Automation_First' if not firstname else firstname
         self.sl.wait_and_input_text(self.INPUT_BILLING_FIRSTNAME, firstname)

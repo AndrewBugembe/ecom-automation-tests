@@ -21,8 +21,7 @@ class SeleniumHelpers:
 
     def wait_until_error_is_displayed(self, locator, text, timeout=None):
         timeout = timeout if timeout else self.def_timeout
-        WebDriverWait(self.driver, timeout).until(EC.text_to_be_present_in_element(locator, text)
-        )
+        WebDriverWait(self.driver, timeout).until(EC.text_to_be_present_in_element(locator, text))
 
     def wait_until_element_is_visible(self, locator_or_element, timeout=None):
         timeout = timeout if timeout else timeout is self.def_timeout
@@ -78,8 +77,13 @@ class SeleniumHelpers:
         timeout = timeout if timeout else self.def_timeout
         elm = self.wait_until_element_is_visible(locator, timeout)
         element_text = elm.text
-
         return element_text
+
+    # def wait_and_get_text(self, locator, text, timeout=None):
+    #     timeout = timeout if timeout else self.def_timeout
+    #     elm = WebDriverWait(self.driver, timeout).until(EC.text_to_be_present_in_element(locator, text))
+    #     return elm
+
 
 
 
