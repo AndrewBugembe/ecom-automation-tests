@@ -23,4 +23,4 @@ class CredentialUtilities(object):
         if not db_user or not db_password:
             raise Exception("Database credentials 'DB_USER' and 'DB_PASSWORD' must be variables in the env")
         else:
-            return {"db_user": db_user, "db_password": db_password}
+            return {"DB_USER": db_user, "DB_PASSWORD": db_password}

@@ -7,6 +7,7 @@ class CartPage(CartPageLocator):
         self.driver = driver
         self.sl = SeleniumHelpers(driver)
 
+
     def go_to_cart_page(self):
 
         base_url = MainConfigs.get_base_url()
@@ -32,5 +33,13 @@ class CartPage(CartPageLocator):
     def click_proceed_to_checkout(self):
         self.sl.wait_and_click(self.PROCEED_TO_CHECKOUT_BTN)
 
+    def verify_search_bar_displayed(self, text=None):
+        text = 'beanie' if not text else text
+        self.sl.wait_and_input_text(self.SEARCH_BAR, text)
+
+    def verify_dropdown_btn_is_not_displayed(self):
+        # drop_down = 'Default sorting' if not drop_down else drop_down
+        # assert not self.sl.wait_and_select_dropdown(self.DROPDOWN_BTN, to_select=drop_down, select_by="visible_text")
+        assert not self.sl.wait_until_element_is_visible(self.DROPDOWN_BTN)
 
 

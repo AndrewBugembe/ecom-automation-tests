@@ -6,4 +6,5 @@ class CartPageLocator:
     ADD_COUPON = (By.ID, "coupon_code")
     CLICK_ADD_COUPON_BTN = (By.CSS_SELECTOR, 'button[name="apply_coupon"]')
     PROCEED_TO_CHECKOUT_BTN = (By.CSS_SELECTOR, 'a.checkout-button')
-    # tr.cart_item td.product-name
+    DROPDOWN_BTN = (By.CSS_SELECTOR, "#main > div:nth-child(2) > form > select")
+    SEARCH_BAR = (By.ID, 'woocommerce-product-search-field-0')

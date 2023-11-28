@@ -12,3 +12,6 @@ class Header(HeaderLocator):
     def wait_until_cart_view_count(self, count):
         # expected_text = str(count) + ' item'
         self.sl.wait_until_element_contains_text(self.CART_VIEW_COUNT, str(count))
+
+    def verify_cart_title_displayed(self):
+        self.sl.wait_and_get_text(self.CART_TITLE)
