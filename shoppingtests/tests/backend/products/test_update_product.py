@@ -11,11 +11,8 @@ def test_update_random_product_regular_price():
     rand_prod = prod.get_random_product(1)
     prod_id = rand_prod[0]["ID"]
 
-    """make api call for product from db"""
-    api_call = ProductHelper()
-    api_resp = api_call.get_product_id(prod_id)
-
     """update product price and make an api call to update the regular price"""
+    api_call = ProductHelper()
     data = {'regular_price': '5'}
     api_update = api_call.update_product(prod_id, data)
 
