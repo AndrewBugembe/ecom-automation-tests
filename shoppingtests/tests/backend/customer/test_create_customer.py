@@ -20,9 +20,6 @@ def test_create_customer_email():
     woo_helper = WooAPIUtility()
     rs_api = woo_helper.post("customers", params=payload, expected_status_code=201)
 
-    # # customer_object = CustomerHelper()
-    # # customer_api = customer_object.create_customer(email=email, password=password)
-
 # assert customer and email are created
     assert rs_api["email"] == email, f'Email does not match. Email: {email}'
     assert rs_api["first_name"] == '', f'First name should be empty'
